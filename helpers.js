@@ -1,62 +1,60 @@
-//Función Update
+
 
 //Función Start Game
 
 
-
+//Función Update
 function update() {
-    //frames++
+    frames++
     //generateObstacles()
     clearCanvas()
     board.draw()
-    //checkCollition()
+    checkMovement()
     p1.draw()
     p2.draw()
+
     //drawObstacles()
     //drawScore()
-    updatePlayersPos()
-    //update()
-    setInterval(update, 1000 / 60)
+    scoreDisplay()
   }
   
   //Función Limpiar Canvas
   function clearCanvas() {
     ctx.clearRect(0, 0, $canvas.width, $canvas.height)
   }
-  
-  function updatePlayersPos() {
-    p1.x += p1.velX
-    p1.y += p1.velY
-    p2.x += p2.velX
-    p2.y += p2.velY
+    
+  function checkMovement() {
+    if (keys.includes(87) ){
+      p1.moveUp()
+    }
+    if (keys.includes(65) ){
+      p1.moveLeft()
+    }
+    if (keys.includes(68) ){
+      p1.moveRight()
+    }
+    if (keys.includes(83) ){
+      p1.moveDown()
+    }
+    if (keys.includes(38) ){
+      p2.moveUp()
+    }
+    if (keys.includes(37) ){
+      p2.moveLeft()
+    }
+    if (keys.includes(39) ){
+      p2.moveRight()
+    }
+    if (keys.includes(40) ){
+      p2.moveDown()
+    }
+  }
 /*
-    //atraction x
-    if(p1.x < p2.x){
-        p1.velX +=10
-        p2.velX -=10
-    }else{
-        p1.velX -=10
-        p2.velX +=10 
-    }
-    //atraction y
-    if(p1.y < p2.y){
-        p1.velY +=10
-        p2.velY -=10
-    }else{
-        p1.velY -=10
-        p2.velY +=10 
-    }
-*/
+  function scoreDisplay (){
+    ctx.fillStyle = "teal"
+    ctx.font = "30px Sans Serif"
+    if (frames % 100 === 0) score++
+    ctx.fillText(`Score: ${score}`, 50, 50
   }
-  
-  //Función Game Over
-  function gameOver() {
-    clearInterval(intervalId)
-    ctx.font = `80px 'Comic Neue'`
-    ctx.fillStyle = "crimson"
-    ctx.fillText("Game Over", 200, 400)
-  }
-  
-  
-  
 
+  */

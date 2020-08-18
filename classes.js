@@ -1,9 +1,5 @@
-//Constructor Jugadores
 
 //Constructor Escenario
-
-//Constructor Obstáculos
-
 
 class Board {
     constructor() {
@@ -13,7 +9,7 @@ class Board {
         this.height = $canvas.height
         this.img = new Image()
         this.img.src =
-            "https://i.ytimg.com/vi/4gmrHQa7fEg/maxresdefault.jpg"
+            "./images/background1.png"
         this.img.onload = () => {
             this.draw()
         }
@@ -24,7 +20,7 @@ class Board {
     
 }
 
-
+//Constructor Jugadores
 class Player1 {
     constructor(x, y) {
       this.x = x
@@ -35,7 +31,7 @@ class Player1 {
       this.velY = 0
       this.img = new Image()
       this.img.src =
-        "https://raw.githubusercontent.com/ironhack-labs/lab-canvas-flappybirds/master/images/flappy.png"
+        "./images/0rt9b.png"
       this.img.onload = () => {
         this.draw()
       }
@@ -44,29 +40,66 @@ class Player1 {
       ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     }
     moveUp() {
-        this.velY -= 10
-    }
-    moveLeft() {
-        this.velX -= 10
-    }
-    moveRight() {
-        this.velX += 10
+      
+      if(this.velY >= 0){
+        this.velY = -2
+      }
+
+      this.velY -= 2
+      this.y += this.velY
+
+      if(this.y <=0){
+        this.y = 0
+      }
+        
     }
     moveDown() {
-        this.velY += 10
+      if(this.velY <= 0){
+        this.velY = 2
+      }
+
+      this.velY += 2
+      this.y += this.velY
+
+      if(this.y >= $canvas.height -this.height){
+         this.y = $canvas.height - this.height
+      }
+    }
+    moveLeft() {
+      if(this.velX >= 0){
+        this.velX = -2
+      }
+      this.velX -= 2     
+      this.x += this.velX
+      
+      if(this.x <=0){
+        this.x = 0
+      }
+    }
+    moveRight() {
+      if(this.velX <= 0){
+        this.velX = 2
+      }
+      this.velX += 2     
+      this.x += this.velX
+      
+      if(this.x >= $canvas.width -this.width){
+        this.x = $canvas.width - this.width
+     }
     }
   }
 
-  class Player2 {
+class Player2 {
     constructor(x, y) {
       this.x = x
       this.y = y
       this.width = 70
       this.height = 70
+      this.velX = 0
       this.velY = 0
       this.img = new Image()
-      this.img.src =
-        "https://raw.githubusercontent.com/ironhack-labs/lab-canvas-flappybirds/master/images/flappy.png"
+      this.img.src = "./images/oixhape35id31.png"
+      
       this.img.onload = () => {
         this.draw()
       }
@@ -75,69 +108,53 @@ class Player1 {
       ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     }
     moveUp() {
-        this.velY -= 10
-    }
-    moveLeft() {
-        this.velX -= 10
-    }
-    moveRight() {
-        this.velX += 10
+      
+      if(this.velY >= 0){
+        this.velY = -2
+      }
+
+      this.velY -= 2
+      this.y += this.velY
+
+      if(this.y <=0){
+        this.y = 0
+      }
+        
     }
     moveDown() {
-        this.velY += 10
+      if(this.velY <= 0){
+        this.velY = 2
+      }
+
+      this.velY += 2
+      this.y += this.velY
+
+      if(this.y >= $canvas.height -this.height){
+         this.y = $canvas.height - this.height
+      }
+    }
+    moveLeft() {
+      if(this.velX >= 0){
+        this.velX = -2
+      }
+      this.velX -= 2     
+      this.x += this.velX
+      
+      if(this.x <=0){
+        this.x = 0
+      }
+    }
+    moveRight() {
+      if(this.velX <= 0){
+        this.velX = 2
+      }
+      this.velX += 2     
+      this.x += this.velX
+      
+      if(this.x >= $canvas.width -this.width){
+        this.x = $canvas.width - this.width
+     }
     }
   }
 
-/*
-class Obstacle1 {
-    constructor(x,y) {
-      this.x = x
-      this.y = y
-      this.width = 70
-      this.height = 70
-      this.img = new Image()
-      this.img.src =
-        "https://static.wikia.nocookie.net/portalworldsgame/images/2/27/Lava.png"
-      }
-    draw() {
-        if (p1.x < this.x) {
-        this.x--
-      } else {
-        this.x++
-      }
-
-      if (p1.y < this.y) {
-        this.y--
-      } else {
-        this.y++
-      }
-    }
-  }
-
-  class Obstacle2 {
-    constructor(y) {
-      this.x = $canvas.width
-      this.y = y
-      this.width = 70
-      this.height = 70
-      this.img = new Image()
-      this.img.src =
-        "https://static.wikia.nocookie.net/portalworldsgame/images/2/27/Lava.png"
-      }
-    draw() {
-        if (p2.x < this.x) {
-        this.x--
-      } else {
-        this.x++
-      }
-
-      if (p2.y < this.y) {
-        this.y--
-      } else {
-        this.y++
-      }
-    }
-  }
-
-
-  */
+//Constructor Obstáculos
