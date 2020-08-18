@@ -8,8 +8,7 @@ class Board {
         this.width = $canvas.width
         this.height = $canvas.height
         this.img = new Image()
-        this.img.src =
-            "./images/background1.png"
+        this.img.src ="./images/background1.png"
         this.img.onload = () => {
             this.draw()
         }
@@ -30,8 +29,7 @@ class Player1 {
       this.velX = 0
       this.velY = 0
       this.img = new Image()
-      this.img.src =
-        "./images/0rt9b.png"
+      this.img.src ="./images/0rt9b.png"
       this.img.onload = () => {
         this.draw()
       }

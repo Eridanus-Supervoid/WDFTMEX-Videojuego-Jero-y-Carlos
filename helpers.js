@@ -16,14 +16,16 @@ function update() {
     //drawObstacles()
     //drawScore()
     scoreDisplay()
+    pull()
+    playerCollition()
   }
   
   //Función Limpiar Canvas
-  function clearCanvas() {
+function clearCanvas() {
     ctx.clearRect(0, 0, $canvas.width, $canvas.height)
-  }
+}
     
-  function checkMovement() {
+function checkMovement() {
     if (keys.includes(87) ){
       p1.moveUp()
     }
@@ -48,13 +50,30 @@ function update() {
     if (keys.includes(40) ){
       p2.moveDown()
     }
-  }
-/*
-  function scoreDisplay (){
-    ctx.fillStyle = "teal"
-    ctx.font = "30px Sans Serif"
-    if (frames % 100 === 0) score++
-    ctx.fillText(`Score: ${score}`, 50, 50
-  }
+}
 
-  */
+function scoreDisplay (){
+    ctx.fillStyle = "white"
+    ctx.font = "30px Sans Serif"
+    if (frames % 50 === 0){
+      score++
+    }
+    ctx.fillText(`Score: ${score}`, 50, 50)
+}
+
+function pull (){
+   if (p1.x < p2.x){
+     p1.x += playersPullStrength
+     p2.x -= playersPullStrength
+   }else{
+    p1.x -= playersPullStrength
+    p2.x += playersPullStrength
+   }
+   if (p1.y < p2.y){
+    p1.y += playersPullStrength
+    p2.y -= playersPullStrength
+  }else{
+   p1.y -= playersPullStrength
+   p2.y += playersPullStrength
+  }
+}
