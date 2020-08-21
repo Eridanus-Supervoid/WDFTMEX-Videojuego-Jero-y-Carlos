@@ -1,0 +1,51 @@
+body {
+    height: 750px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.divPrincipal {
+    position: fixed;
+    width: 200px;
+    height: 300px;
+}
+
+.divSecundario {
+    display: none;
+    position: fixed;
+    width: 260px;
+    height: 0px;
+}
+
+.blanco {
+    background-color: black;
+}
+
+.logo {
+    color: white;
+    position: fixed;
+    width: 200px;
+    font-family: 'Gameplay';
+    font-size: 50px;
+}
+
+.logo1 {
+    color: rebeccapurple;
+    position: fixed;
+    width: 100px;
+    font-family: 'Gameplay';
+    font-size: 50px;
+}
+
+.off {
+    visibility: hidden;
+}
+
+.on {
+    visibility: visible;
+    color: blueviolet;
+}
